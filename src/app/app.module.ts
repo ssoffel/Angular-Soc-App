@@ -5,14 +5,15 @@ import { HttpModule } from '@angular/http'
 import { ReactiveFormsModule, FormsModule } from '@angular/forms'
 
 import { appRoutes } from './routes'
-import { AppComponent }  from './components/app';
-import { NavBarComponent }  from './components/nav-bar';
-import { CoursesComponent } from "./components/courses";
-import { RegisterComponent } from "./components/sign-in";
-import { SignInComponent } from "./components/sign-in";
-import { LoadingComponent } from "./components/loading-spinner";
-import { DataRepositoryService } from "./services/data-repository"
-import { AccountMenuComponent } from "./components/account-menu";
+import { AppComponent }  from './app.component';
+ 
+import { CoreModule } from './core/core.module';
+import { CatalogModule } from './catalog/catalog.module';
+import { SharedModule } from './shared/shared.module';
+ 
+
+
+ 
 
 @NgModule({
   imports:      [
@@ -20,18 +21,15 @@ import { AccountMenuComponent } from "./components/account-menu";
     HttpModule,
     FormsModule,
     ReactiveFormsModule,
+    CoreModule,
+    CatalogModule,
+    SharedModule,
     RouterModule.forRoot(appRoutes)
   ],
   declarations: [
-    AppComponent,
-    NavBarComponent,
-    CoursesComponent,
-    RegisterComponent,
-    SignInComponent,
-    LoadingComponent,
-    AccountMenuComponent
+    AppComponent
   ],
-  providers: [ DataRepositoryService ],
+  providers: [],
   bootstrap:    [ AppComponent ]
 })
 export class AppModule { }
